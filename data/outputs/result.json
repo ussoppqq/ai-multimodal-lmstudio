@@ -1,0 +1,18 @@
+[
+  {
+    "label": "car",
+    "confidence": 0.8954423666000366
+  },
+  {
+    "label": "person",
+    "confidence": 0.7166063189506531
+  },
+  {
+    "label": "car",
+    "confidence": 0.6930742859840393
+  },
+  {
+    "label": "car",
+    "confidence": 0.6699163317680359
+  }
+]

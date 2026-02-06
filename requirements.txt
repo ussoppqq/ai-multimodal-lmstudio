@@ -1,0 +1,33 @@
+# CORE
+numpy
+packaging
+requests
+
+# TASK 1 — DOCUMENT RAG (INDEXING)
+faiss-cpu==1.13.2
+pypdf==6.6.2
+sentence-transformers
+torch
+
+# TASK 2 — VISION / OBJECT DETECTION
+ultralytics
+opencv-python
+pillow
+matplotlib
+
+# TASK 3 — AUDIO → LLM
+
+# Audio processing
+sounddevice
+scipy
+librosa
+soundfile
+
+# Speech to Text
+openai-whisper
+
+# LLM (LM Studio)
+openai
+
+# OPTIONAL — TEXT TO SPEECH
+pyttsx3
