@@ -4,7 +4,7 @@ from app.vision_llm.services.visualize import save_result
 from app.vision_llm.services.save_json import save_detection_json
 import os
 
-IMAGE_PATH = "data/images/sample.jpg"
+IMAGE_PATH = "data/images/sample1.jpg"
 IMAGE_OUT = "data/outputs/result.jpg"
 JSON_OUT = "data/outputs/result.json"
 

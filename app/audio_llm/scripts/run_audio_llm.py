@@ -25,5 +25,4 @@ if __name__ == "__main__":
     print("\n=== LLM RESPONSE ===")
     print(answer)
 
-    # optional voice output
-    # speak(answer)
+    speak(answer)

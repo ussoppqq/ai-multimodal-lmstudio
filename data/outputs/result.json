@@ -1,18 +1,202 @@
 [
   {
     "label": "car",
-    "confidence": 0.8954423666000366
+    "confidence": 0.8335337042808533
+  },
+  {
+    "label": "car",
+    "confidence": 0.8265776038169861
+  },
+  {
+    "label": "car",
+    "confidence": 0.7723440527915955
+  },
+  {
+    "label": "car",
+    "confidence": 0.7397851943969727
+  },
+  {
+    "label": "car",
+    "confidence": 0.7289401292800903
+  },
+  {
+    "label": "car",
+    "confidence": 0.7277213335037231
   },
   {
     "label": "person",
-    "confidence": 0.7166063189506531
+    "confidence": 0.7265061736106873
   },
   {
     "label": "car",
-    "confidence": 0.6930742859840393
+    "confidence": 0.7179203629493713
   },
   {
     "label": "car",
-    "confidence": 0.6699163317680359
+    "confidence": 0.7118380069732666
+  },
+  {
+    "label": "car",
+    "confidence": 0.702997088432312
+  },
+  {
+    "label": "car",
+    "confidence": 0.6955938935279846
+  },
+  {
+    "label": "person",
+    "confidence": 0.5954742431640625
+  },
+  {
+    "label": "car",
+    "confidence": 0.587342381477356
+  },
+  {
+    "label": "bus",
+    "confidence": 0.5796055793762207
+  },
+  {
+    "label": "car",
+    "confidence": 0.5730149149894714
+  },
+  {
+    "label": "car",
+    "confidence": 0.5463119745254517
+  },
+  {
+    "label": "car",
+    "confidence": 0.5193544030189514
+  },
+  {
+    "label": "motorcycle",
+    "confidence": 0.5033338069915771
+  },
+  {
+    "label": "motorcycle",
+    "confidence": 0.486673504114151
+  },
+  {
+    "label": "car",
+    "confidence": 0.4645695686340332
+  },
+  {
+    "label": "car",
+    "confidence": 0.45774734020233154
+  },
+  {
+    "label": "person",
+    "confidence": 0.4572676420211792
+  },
+  {
+    "label": "car",
+    "confidence": 0.45223385095596313
+  },
+  {
+    "label": "car",
+    "confidence": 0.4407736361026764
+  },
+  {
+    "label": "person",
+    "confidence": 0.4248907268047333
+  },
+  {
+    "label": "car",
+    "confidence": 0.41442206501960754
+  },
+  {
+    "label": "person",
+    "confidence": 0.4075065553188324
+  },
+  {
+    "label": "person",
+    "confidence": 0.4055810272693634
+  },
+  {
+    "label": "person",
+    "confidence": 0.4050317704677582
+  },
+  {
+    "label": "motorcycle",
+    "confidence": 0.40043124556541443
+  },
+  {
+    "label": "person",
+    "confidence": 0.4003787636756897
+  },
+  {
+    "label": "person",
+    "confidence": 0.3823694586753845
+  },
+  {
+    "label": "car",
+    "confidence": 0.36784425377845764
+  },
+  {
+    "label": "person",
+    "confidence": 0.36540377140045166
+  },
+  {
+    "label": "person",
+    "confidence": 0.35152342915534973
+  },
+  {
+    "label": "person",
+    "confidence": 0.34775203466415405
+  },
+  {
+    "label": "person",
+    "confidence": 0.34510567784309387
+  },
+  {
+    "label": "car",
+    "confidence": 0.3450382947921753
+  },
+  {
+    "label": "person",
+    "confidence": 0.32478299736976624
+  },
+  {
+    "label": "person",
+    "confidence": 0.29909494519233704
+  },
+  {
+    "label": "car",
+    "confidence": 0.2958272695541382
+  },
+  {
+    "label": "motorcycle",
+    "confidence": 0.2807655930519104
+  },
+  {
+    "label": "person",
+    "confidence": 0.2797826826572418
+  },
+  {
+    "label": "motorcycle",
+    "confidence": 0.27722856402397156
+  },
+  {
+    "label": "truck",
+    "confidence": 0.2772133946418762
+  },
+  {
+    "label": "person",
+    "confidence": 0.27664831280708313
+  },
+  {
+    "label": "car",
+    "confidence": 0.26866212487220764
+  },
+  {
+    "label": "motorcycle",
+    "confidence": 0.26549825072288513
+  },
+  {
+    "label": "car",
+    "confidence": 0.25768300890922546
+  },
+  {
+    "label": "person",
+    "confidence": 0.25543051958084106
   }
 ]
