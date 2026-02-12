@@ -1,49 +1,60 @@
-# This file is a template, and might need editing before it works on your project.
-# This is a sample GitLab CI/CD configuration file that should run without any modifications.
-# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
-# it uses echo commands to simulate the pipeline execution.
-#
-# A pipeline is composed of independent jobs that run scripts, grouped into stages.
-# Stages run in sequential order, but jobs within stages run in parallel.
-#
-# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
-#
-# You can copy and paste this template into a new `.gitlab-ci.yml` file.
-# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
-#
-# To contribute improvements to CI/CD templates, please follow the Development guide at:
-# https://docs.gitlab.com/ee/development/cicd/templates.html
-# This specific template is located at:
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
-
-stages:          # List of stages for jobs, and their order of execution
+stages:
   - build
-  - test
   - deploy
 
-build-job:       # This job runs in the build stage, which runs first.
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  DOCKER_REPO: harbor.solutiontech.id:9443
+  USER_DOCKER: tdsadmin
+  IMAGE_DEV: harbor.solutiontech.id:9443/facerecognition/face-recognition-service-dev
+  IMAGE_PROD: harbor.solutiontech.id:9443/facerecognition/face-recognition-service
+
+# === BUILD & DEPLOY PROD (main) ===
+build-image:
   stage: build
+  only:
+    - main
+  tags:
+    - sigmarunner
   script:
-    - echo "Compiling the code..."
-    - echo "Compile complete."
+    - echo "Build prod image"
+    - docker login $DOCKER_REPO --username $USER_DOCKER --password $PASSWORD_REPO
+    - docker build --network host -t "$IMAGE_PROD" .
+    - docker push "$IMAGE_PROD"
 
-unit-test-job:   # This job runs in the test stage.
-  stage: test    # It only starts when the job in the build stage completes successfully.
+deploy-image:
+  stage: deploy
+  only:
+    - main
+  tags:
+    - sigmarunner
   script:
-    - echo "Running unit tests... This will take about 60 seconds."
-    - sleep 60
-    - echo "Code coverage is 90%"
+    - echo "Rollout prod"
+    - KUBECONFIG=/home/gitlab-runner/kube_tds.yaml kubectl rollout -n tds restart deployment/face-recognition-service
+    - KUBECONFIG=/home/gitlab-runner/kube_tds.yaml kubectl rollout -n tds status deployment/face-recognition-service
 
-lint-test-job:   # This job also runs in the test stage.
-  stage: test    # It can run at the same time as unit-test-job (in parallel).
+# === BUILD & DEPLOY DEV (development) ===
+build-image-dev:
+  stage: build
+  only:
+    - development
+  tags:
+    - sigmarunner
+  # kalau butuh proxy / env file, bisa tambahin before_script di sini
   script:
-    - echo "Linting code... This will take about 10 seconds."
-    - sleep 10
-    - echo "No lint issues found."
+    - echo "Build dev image"
+    - docker login $DOCKER_REPO --username $USER_DOCKER --password $PASSWORD_REPO
+    - docker build --network host -t "$IMAGE_DEV" .
+    - docker push "$IMAGE_DEV"
 
-deploy-job:      # This job runs in the deploy stage.
-  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
-  environment: production
+deploy-image-dev:
+  stage: deploy
+  only:
+    - development
+  tags:
+    - sigmarunner
   script:
-    - echo "Deploying application..."
-    - echo "Application successfully deployed."
+    - echo "Rollout dev"
+    - KUBECONFIG=/home/gitlab-runner/kube_tds.yaml kubectl rollout -n tds restart deployment/face-recognition-service-dev
+    - KUBECONFIG=/home/gitlab-runner/kube_tds.yaml kubectl rollout -n tds status deployment/face-recognition-service-dev

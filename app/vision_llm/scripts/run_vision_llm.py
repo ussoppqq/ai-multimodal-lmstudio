@@ -13,6 +13,6 @@ answer = ask_llm(prompt, "Explain the image")
 print("=== DETECTED OBJECTS ===")
 for obj in objects:
     print(obj)
-    
+        
 print("\n=== LLM INTERPRETATION ===")
 print(answer)
